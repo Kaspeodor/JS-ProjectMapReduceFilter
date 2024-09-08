@@ -11,14 +11,30 @@ body {
     background-color: black;
 
 }
-header {
+nav {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav img {
+    width: auto;
+    height: 25vh;
+    
+
+
+}
+nav h1 {
+    font-size: 2rem;
+}
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 3%;
 
 }
-header button{
+section button{
     font-size: 1.8rem;
     text-decoration: none;
     color: black;
@@ -30,11 +46,11 @@ header button{
     border: none;
 
 }
-header button:hover {
+section button:hover {
     opacity: 0.8;
     cursor: pointer;
 }
-header button:active {
+section button:active {
     opacity: 0.6;
 }
 ul {
@@ -60,7 +76,7 @@ li:active{
     opacity: 0.;
     
 }
-img {
+section img {
     width: 100%;
     height: 150px;
     border-radius: 14px;
@@ -71,7 +87,7 @@ img {
 
 }
 @media (max-width: 600px) {
-    header button {
+    section button {
         font-size: 3.5vw;
         padding: 0.4em 0.8em;
         margin: 0.3vw;
@@ -88,12 +104,12 @@ img {
         padding: 6px;
     }
 
-    img {
+    section img {
         height: 100px;
     }
 }
 @media (min-width: 601px) and (max-width: 1024px) {
-    header button {
+    section button {
         font-size: 2.5vw;
         padding: 0.5em 0.9em;
         max-width: 160px;
@@ -109,7 +125,7 @@ img {
         padding: 8px;
     }
 
-    img {
+    section img {
         height: 150px;
     }
 }
