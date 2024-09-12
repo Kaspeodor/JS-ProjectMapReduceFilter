@@ -1,46 +1,56 @@
+const item = document.querySelector('.items')
 
 
-const item = document.querySelector('ul')
 
-// Função para exibir todos os produtos na tela
-const showAll = (products) => {
-    // Limpa o conteúdo anterior da lista para evitar duplicação
-    item.innerHTML = ''
+const showAll = (product) =>{
 
-    products.forEach(product => {
-        const li = document.createElement('li')
-        li.innerHTML = `
-            <img src=${product.src} alt="${product.name}">
-            <p>${product.name}</p>
-            <p><b>R$</b><b class="item-price">${product.price.toFixed(2)}</b></p>
+const copyText = document.querySelector (".marketText")
+copyText.style.display = 'none'
+
+
+let myLi = ''
+    product.forEach(product => {
+        
+        myLi += `
+         
+            <li>
+                <img src= ${product.src} alt=${product.name}>
+                <p>${product.name}</p>
+                <p><b>R$</b><b class="item-price">${product.price.toFixed(2)}</b></p>
+            </li>
         `
-        item.appendChild(li)
-    })
+        })        
+        item.innerHTML = myLi
+
+}
+const discount = () =>{
+    const discount10 = menuOptions.map((product) => ({
+        ...product, //spread operator, pega o nome dado a variável e acumula as informações que já possuem e muda o que pede em seguida
+        price: product.price * 0.9,
+    }))
+
+    showAll(discount10)
+  
 }
 
-// Função para aplicar o desconto de 10%
-const discount10percent = () => {
-    const newPrices = menuOptions.map((product) => {
-        return {
-            ...product,
-            price: product.price * 0.9,
-        }
-    })
-
-    // Exibir os produtos com os preços atualizados
-    showAll(newPrices)
+const sumAll = () => {
+    const sumItens = menuOptions.reduce ((acc, curr) =>acc + curr.price, 0)
+    item.innerHTML =
+    `
+        <li>
+            <p>O valor total é de:<b>R$</b><b class="item-price">${sumItens.toFixed(2)}</b></p>
+        </li>
+    `
 }
 
-const sumAll = () =>{
-    const sumAllItems = menuOptions.reduce((acc,curr) => acc + curr.price, 0)
-    item.innerHTML = `
-    <li> 
-    <p>O preço total dos itens é de <b>R$</b><b class="item-price"> ${sumAllItems.toFixed(2)}</b></p>
-    </li>
-    ` 
+const filterAll = () =>{
+    const randownFilter = menuOptions.filter(item =>item.vegan === true)
+    showAll(randownFilter)
 }
 
-const filterAll = () => {
-    const filterVegan = menuOptions.filter((product) => product.vegan === true)
-    showAll(filterVegan)
+const hiddenMarketText = () =>{
+    let hiddenText = 
+    showAll(hiddenText)
 }
+
+

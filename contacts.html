@@ -14,36 +14,34 @@
         <a href="./index.html">Home</a>
         <a href="./contacts.html">Contato</a>
     </header>
-    <nav>
-        
-        <img src="./assets/logo.png" alt="logo-hamburgueria"> 
-        <h1>Pit Burguer</h1>
-        
-    </nav>
-    <section class="selectButtons">
-        
-        <button onclick="showAll(menuOptions)">Mostrar Cardápio</button>
-        <button onclick="discount()">Desconto 10% </button>
-        <button onclick="sumAll()">Somar produtos</button>
-        <button onclick="filterAll()">Filtrar Veganos</button>
-        
-    </section>
-    <section id="mainSection">
-        <div class="marketText">
-            <h1>A verdadeira explosão de sabor está aqui!</h1>
-<p>Na <strong>Pit Burguer</strong>, cada mordida é uma experiência irresistível. <br>
-Dos clássicos suculentos às opções veganas irresistíveis, temos tudo para satisfazer seu apetite.</p>
+    <aside class="marketText">
+        <h1>Entre em Contato</h1>
+        <p>Estamos prontos para ouvir você! Preencha o formulário abaixo e responderemos o mais rápido possível.</p>
+    </aside>
+    <main>
+        <section class="contact-form">
+            <form>
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required>
 
-<h2>🍔 Mais sabor, mais felicidade!<br>
-🎉 Promoções imperdíveis todos os dias!</h2>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Seu email" required>
 
-<p><strong>Escolha, morda e aproveite!</strong></p>
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" placeholder="Escreva sua mensagem" rows="5" required></textarea>
 
-        </div>
-        <ul class="items">
-            
-        </ul>
-    </section>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section class="contact-info">
+            <h2>Informações de Contato</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Rua dos Hambúrgueres, 123, Centro</p>
+            <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+            <p><i class="fas fa-envelope"></i> contato@hamburgueria.com</p>
+        </section>
+    </main>
+
 
     <!-- rodapé -->
 
