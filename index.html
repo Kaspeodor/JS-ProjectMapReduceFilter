@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Find Burguer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <a href="./index.html">Home</a>
-        <a href="./contacts.html">Contato</a>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./contacts.html">Fale Conosco</a>
+        </nav>
     </header>
-    <nav>
-        
-        <img src="./assets/logo.png" alt="logo-hamburgueria"> 
+
+    <nav class="logo-nav">
+        <img src="./assets/logo.png" alt="logo-hamburgueria">
         <h1>Pit Burguer</h1>
-        
     </nav>
-    <section class="selectButtons">
-        
-        <button onclick="showAll(menuOptions)">Mostrar Cardápio</button>
-        <button onclick="discount()">Desconto 10% </button>
-        <button onclick="sumAll()">Somar produtos</button>
-        <button onclick="filterAll()">Filtrar Veganos</button>
-        
-    </section>
-    <section id="mainSection">
+
+    <section class="mainSection">
         <div class="marketText">
             <h1>A verdadeira explosão de sabor está aqui!</h1>
-<p>Na <strong>Pit Burguer</strong>, cada mordida é uma experiência irresistível. <br>
-Dos clássicos suculentos às opções veganas irresistíveis, temos tudo para satisfazer seu apetite.</p>
-
-<h2>🍔 Mais sabor, mais felicidade!<br>
-🎉 Promoções imperdíveis todos os dias!</h2>
-
-<p><strong>Escolha, morda e aproveite!</strong></p>
-
+            <p>Na <strong>Pit Burguer</strong>, cada mordida é uma experiência irresistível. <br>
+                Dos clássicos suculentos às opções veganas, temos tudo para satisfazer seu apetite.</p>
+            <h2>Mais sabor, mais felicidade!<br><br> Promoções imperdíveis todos os dias!</h2>
+            <p><strong>Escolha, morda e aproveite!</strong></p>
         </div>
-        <ul class="items">
-            
-        </ul>
-    </section>
 
-    <!-- rodapé -->
+        <section class="selectButtons">
+            <button onclick="showAll(menuOptions)">Mostrar Cardápio</button>
+        </section>
+
+        <!-- Cardápio (Itens) -->
+        <ul class="items"></ul>
+
+        <!-- Carrinho -->
+        <section id="cart" class="itemCart" style="display:none;">
+            <h2>Itens no Carrinho</h2>
+            <div id="cartItems"></div>
+            <p class="cartTotal">Total: R$ <span id="totalAmount">0,00</span></p>
+            <button id="discountButton">Aplicar Desconto 10%</button> <br><br>
+            <button id="finalizeButton">Finalizar Pedido</button>
+            
+        </section>
+    </section>
 
     <footer>
         <div class="footer-container">
             <div class="footer-section about">
                 <h3>Sobre Nós</h3>
-                <p>Na Pit Burguer, oferecemos uma explosão de sabor em cada mordida. Hambúrgueres artesanais preparados com ingredientes de qualidade e uma pitada de amor!</p>
+                <p>Na Pit Burguer, oferecemos uma explosão de sabor em cada mordida. Hambúrgueres artesanais preparados
+                    com ingredientes de qualidade e uma pitada de amor!</p>
             </div>
-    
+
             <div class="footer-section links">
                 <h3>Links Rápidos</h3>
                 <ul>
@@ -61,7 +66,7 @@ Dos clássicos suculentos às opções veganas irresistíveis, temos tudo para s
                     <li><a href="./contacts.html">Contate-nos</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-section contact">
                 <h3>Contato</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Rua dos Hambúrgueres, 123, Centro</p>
@@ -73,7 +78,9 @@ Dos clássicos suculentos às opções veganas irresistíveis, temos tudo para s
             <p>&copy; 2024 Pit Burguer | Todos os direitos reservados</p>
         </div>
     </footer>
+
     <script src="./products.js"></script>
     <script src="./script.js"></script>
 </body>
+
 </html>

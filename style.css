@@ -1,150 +1,194 @@
-*{
+/* Estilos Gerais */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     color: white;
 }
-body {
-    background-color: black;
 
+body {
+    background: url('./assets/burglogoback.png') center/cover no-repeat;
 }
-header{
-    display: flex;
-    justify-content: center;
-}
-header a{
-    font-size: 1.1rem;
-    text-align: center;
-    text-decoration: none;
-    margin: 20px 20px;
-}
-a:hover{
-    
-    color: #8133ff;
-    font-weight: bolder;
-}
-nav {
-    margin-top: 4px;
+
+header, nav {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-nav img {
-    width: auto;
-    height: 25vh;
-    ;
 
+header a, .selectButtons button {
+    font-size: 1.1rem;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
 }
-nav h1 {
+
+a:hover, .footer-section ul li a:hover {
+    color: #8133ff;
     font-weight: bolder;
+}
+
+nav img {
+    height: 25vh;
+}
+
+nav h1 {
     font-size: 2rem;
-    cursor: default;
+    font-weight: bolder;
     margin: 1%;
 }
+
 .selectButtons {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1%;
-   
-    
-
 }
-.selectButtons button{
-    font-weight: bolder;
-    font-size: 2rem;
-    text-decoration: none;
-    text-align: center;
 
+.selectButtons button {
+    font-size: 2rem;
+    font-weight: bolder;
     color: black;
     background-color: #79cb15;
-    padding:15px 30px;
+    padding: 15px 30px;
     margin: 10px;
     border-radius: 15px;
-    text-align: center;
     border: none;
-
+    text-align: center;
 }
+
 .selectButtons button:hover {
     opacity: 0.8;
     cursor: pointer;
 }
+
 .selectButtons button:active {
     opacity: 0.6;
 }
+
 .marketText {
     margin: 3% auto;
     width: 80vw;
 }
-.marketText h1 {
+
+.marketText h1, .itemCart h1 {
     font-size: 2.5rem;
     color: #8133ff;
-    text-align: center;
-    margin: 20px 0;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.5px;
+    margin: 20px 0;
+    text-align: center;
 }
-.marketText p {
+
+.marketText p, .marketText h2, .contact-info p {
     font-size: 1.2rem;
     color: #555;
-    text-align: left;
-    margin: 10px 0 20px 0;
-    padding: 0 10px;
     line-height: 1.8;
+    margin: 10px 0;
+    padding: 0 10px;
 }
-.marketText h2 {
+
+.marketText h2, .itemCart h2 {
     font-size: 1.8rem;
     color: #79cb15;
-    text-align: left;
-    margin: 15px 0;
-    padding-left: 10px;
     font-weight: 600;
-    line-height: 1.5;
+    text-align: left;
+    padding-left: 10px;
+    margin: 15px 0;
 }
-.marketText strong {
-        color: #8133ff;
-        font-weight: 700;
-    
-}
-.items {
-    padding: 20px;
-    list-style: none;
-    margin-top: 5%;
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    gap: 50px;
-    justify-content: center;
 
+/* Estilos para a lista de itens */
+.items {
+    display: grid;
+    grid-template-columns:  200px 200px 200px;
+    gap: 50px;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    margin-top: 5%;
 }
-li {
+
+.items li {
     border: 2px solid #8133ff;
     border-radius: 10px;
-    padding:10px;
+    padding: 10px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-li:hover{
-    cursor: pointer;
-    opacity: 0.6;
 
-}
-li:active{
-    opacity: 0.;
-    
-}
-section img {
+.items li img {
     width: 100%;
-    height: 150px;
+    height: auto;
     border-radius: 14px;
 }
-.item-price {
+
+.items .item-price {
     font-weight: bolder;
     color: #79cb15;
+}
+
+/* Estilos do carrinho de compras */
+.itemCart {
+    max-width: 90vw;
+    margin: 5%;
+    background-color: #0e0e0ec5;
+    border: 2px solid #8133ff;
+    border-radius: 20px;
+    padding: 20px;
+}
+.itemCart p{
+font-size: 1.2rem;
+color: #555;
+line-height: 1.8;
+margin: 10px 0;
 
 }
-/*estilos de contato */
+
+.itemCart button {
+    background-color: #8133ff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+.cart-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.cart-item button {
+    background-color: #8133ff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos de contato */
 .contact-form {
     max-width: 800px;
     margin: 50px auto;
@@ -167,13 +211,13 @@ section img {
 
 .contact-form input,
 .contact-form textarea {
-    color: #000;
+    width: 100%;
     padding: 15px;
     margin-bottom: 20px;
     border: 2px solid #79cb15;
     border-radius: 5px;
     font-size: 1rem;
-    width: 100%;
+    color: #000;
 }
 
 .contact-form button {
@@ -216,13 +260,7 @@ section img {
     margin-right: 10px;
 }
 
-
-
-/*footer rodapé */
-
-
-
-
+/* Rodapé */
 footer {
     background-color: #0e0e0e;
     color: white;
@@ -245,14 +283,13 @@ footer {
 }
 
 .footer-section h3 {
-    color: #79cb15;
-    margin-bottom: 15px;
     font-size: 1.3rem;
+    color: #79cb15;
     text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
-.footer-section p, 
-.footer-section ul li {
+.footer-section p, .footer-section ul li {
     color: #ccc;
     margin-bottom: 10px;
 }
@@ -265,7 +302,6 @@ footer {
 .footer-section ul li a {
     color: white;
     text-decoration: none;
-    
 }
 
 .footer-section ul li a:hover {
@@ -290,55 +326,30 @@ footer {
     margin: 0;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .footer-section {
         flex-basis: 100%;
         text-align: center;
     }
 }
-@media (max-width: 600px) {
-    .selectButtons button {
-        font-size: 3.5vw;
-        padding: 0.4em 0.8em;
-        margin: 0.3vw;
-        max-width: 140px;
-        min-width: 100px;
-    }
-    
 
-    .items  {
+@media (max-width: 600px) {
+    .selectButtons button, .items {
+        font-size: 3.5vw;
+    }
+    .items {
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
-
-    li {
-        padding: 6px;
-    }
-
-    section img {
-        height: 100px;
-    }
 }
+
 @media (min-width: 601px) and (max-width: 1024px) {
     .selectButtons button {
-        font-size: 3.5vw;
         padding: 20px;
-        margin: 0.3vw;
-        
-        
     }
-  
-
     .items {
         grid-template-columns: repeat(3, 1fr);
         gap: 25px;
-    }
-
-    li {
-        padding: 8px;
-    }
-
-    section img {
-        height: 150px;
     }
 }

@@ -1,56 +1,77 @@
-const item = document.querySelector('.items')
+// Elementos
+const item = document.querySelector('.items');
+const cart = document.getElementById('cart');
+const cartItemsContainer = document.getElementById('cartItems');
+const totalAmountEl = document.getElementById('totalAmount');
+const finalizeButton = document.getElementById('finalizeButton');
+const discountButton = document.getElementById('discountButton'); // Novo botão de desconto
+let cartItems = [];
+let totalAmount = 0;
 
-
-
-const showAll = (product) =>{
-
-const copyText = document.querySelector (".marketText")
-copyText.style.display = 'none'
-
-
-let myLi = ''
-    product.forEach(product => {
-        
+// Exibe todos os itens do menu
+const showAll = (productList) => {
+    document.querySelector('.marketText').style.display = 'none';
+    let myLi = '';
+    productList.forEach((product, index) => {
         myLi += `
-         
-            <li>
-                <img src= ${product.src} alt=${product.name}>
+            <li onclick="addToCart(${index})">
+                <img src=${product.src} alt=${product.name}>
                 <p>${product.name}</p>
                 <p><b>R$</b><b class="item-price">${product.price.toFixed(2)}</b></p>
             </li>
-        `
-        })        
-        item.innerHTML = myLi
+        `;
+    });
+    item.innerHTML = myLi;
+};
 
-}
-const discount = () =>{
-    const discount10 = menuOptions.map((product) => ({
-        ...product, //spread operator, pega o nome dado a variável e acumula as informações que já possuem e muda o que pede em seguida
-        price: product.price * 0.9,
-    }))
+// Adiciona itens ao carrinho
+const addToCart = (index) => {
+    const selectedItem = menuOptions[index];
+    cartItems.push(selectedItem);
+    totalAmount += selectedItem.price;
+    updateCart();
+};
 
-    showAll(discount10)
-  
-}
+// Atualiza a exibição do carrinho
+const updateCart = () => {
+    cart.style.display = 'block'; // Exibe o carrinho
+    cartItemsContainer.innerHTML = '';
 
-const sumAll = () => {
-    const sumItens = menuOptions.reduce ((acc, curr) =>acc + curr.price, 0)
-    item.innerHTML =
-    `
-        <li>
-            <p>O valor total é de:<b>R$</b><b class="item-price">${sumItens.toFixed(2)}</b></p>
-        </li>
-    `
-}
+    cartItems.forEach((item, i) => {
+        cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+                <img src=${item.src} alt=${item.name}>
+                <p>${item.name}</p>
+                <p>R$ ${item.price.toFixed(2)}</p>
+                <button onclick="removeFromCart(${i})">Remover</button>
+            </div>
+        `;
+    });
 
-const filterAll = () =>{
-    const randownFilter = menuOptions.filter(item =>item.vegan === true)
-    showAll(randownFilter)
-}
+    totalAmountEl.innerText = totalAmount.toFixed(2); // Atualiza o total
+};
 
-const hiddenMarketText = () =>{
-    let hiddenText = 
-    showAll(hiddenText)
-}
+// Remove itens do carrinho
+const removeFromCart = (index) => {
+    totalAmount -= cartItems[index].price;
+    cartItems.splice(index, 1);
+    updateCart();
+};
 
+// Aplica o desconto de 10%
+const applyDiscount = () => {
+    totalAmount *= 0.9; // Aplica um desconto de 10%
+    updateCart();
+};
 
+// Finaliza a compra
+const finalizePurchase = () => {
+    alert(`Pedido finalizado! Total: R$ ${totalAmount.toFixed(2)}`);
+    cartItems = [];
+    totalAmount = 0;
+    updateCart();
+};
+
+// Adiciona os event listeners para os botões
+finalizeButton.addEventListener('click', finalizePurchase);
+discountButton.addEventListener('click', applyDiscount);
